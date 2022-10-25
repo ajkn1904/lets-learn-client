@@ -14,12 +14,13 @@ const Header = () => {
         <div className="flex-none gap-2">
 
         
-        <a className="btn btn-ghost normal-case">Courses</a>
-        <a className="btn btn-ghost normal-case">FAQ</a>
-        <a className="btn btn-ghost normal-case">Blog</a>
-        <a className="btn btn-ghost normal-case">Login</a>
-        <a className="btn btn-ghost normal-case">Signup</a>
-        <a className="btn btn-ghost normal-case">Logout</a>
+        <Link to="/" className="btn btn-ghost normal-case">Home</Link>
+        <Link to="/courses" className="btn btn-ghost normal-case">Courses</Link>
+        <Link to="/faq" className="btn btn-ghost normal-case">FAQ</Link>
+        <Link to="/blog" className="btn btn-ghost normal-case">Blog</Link>
+        <Link to="/login" className="btn btn-ghost normal-case">Login</Link>
+        <Link to="/signup" className="btn btn-ghost normal-case">Signup</Link>
+        <Link to="/" className="btn btn-ghost normal-case">Logout</Link>
 
         <>
         <FontAwesomeIcon icon={faMoon}></FontAwesomeIcon>
