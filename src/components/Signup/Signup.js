@@ -1,9 +1,36 @@
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../contexts/UserContext';
 
 
 const Signup = () => {
+
+    const {createUser} = useContext(AuthContext);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirmed = form.confirmPass.value;
+
+        //console.log(email, password, confirmed);
+
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            form.reset();
+
+        })
+        .catch(error => {
+            console.error(error);
+        })
+
+    }
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
@@ -11,7 +38,7 @@ const Signup = () => {
                 <h1 className="text-3xl font-bold">Signup now!</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
-                    <form className="card-body">
+                    <form onSubmit={handleSubmit} className="card-body">
                         
                         <div className="form-control">
                             <label className="label">
@@ -29,28 +56,28 @@ const Signup = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" className="input input-bordered" />
+                            <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                            <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Confirm Password</span>
                             </label>
-                            <input type="password" name="confirmPass" placeholder="Retype Password" className="input input-bordered" />
+                            <input type="password" name="confirmPass" placeholder="Retype Password" className="input input-bordered" required />
                         </div>
                         
                         
                         <small className='text-center'>Have an account? <Link to="/login" className='text-primary'>Login Now</Link></small>
                         
                         <div className="form-control mt-6">
-                            <button className="btn btn-active">Login</button>
+                            <button className="btn btn-active">Signup</button>
                         </div>
 
                         <div className='flex justify-center items-center my-4'>

@@ -1,10 +1,15 @@
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from "../../logo.svg"
+import { AuthContext } from '../contexts/UserContext';
 
 const Header = () => {
+
+const {user, logout} = useContext(AuthContext);
+console.log(user)
+
     return (
         <div className="navbar bg-base-300">
             <div className="flex-1">
@@ -18,9 +23,9 @@ const Header = () => {
         <Link to="/courses" className="btn btn-ghost normal-case">Courses</Link>
         <Link to="/faq" className="btn btn-ghost normal-case">FAQ</Link>
         <Link to="/blog" className="btn btn-ghost normal-case">Blog</Link>
-        <Link to="/login" className="btn btn-ghost normal-case">Login</Link>
-        <Link to="/signup" className="btn btn-ghost normal-case">Signup</Link>
-        <Link to="/" className="btn btn-ghost normal-case">Logout</Link>
+        <button className="btn btn-ghost normal-case"><Link to="/login">Login</Link></button>
+        <button className="btn btn-ghost normal-case"><Link to="/signup">Signup</Link></button>
+        <button className="btn btn-ghost normal-case" onClick={logout}>Logout</button>
 
         <button className='btn btn-outline'>
             <FontAwesomeIcon icon={faMoon}></FontAwesomeIcon>
@@ -30,8 +35,9 @@ const Header = () => {
             
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-            <img src="https://placeimg.com/80/80/people" alt=""/>
+                <img src="https://placeimg.com/80/80/people" alt=""/>
             </div>
+            <span>{user?.email}</span>
         </label>
  
         </div>
