@@ -3,13 +3,16 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/UserContext';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { useState } from 'react';
 
 
 const Signup = () => {
 
-    const {createUser, loginWithGoogle} = useContext(AuthContext);
+    const {createUser, continueWithProvider} = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+
+    const [error, setError] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,6 +24,16 @@ const Signup = () => {
 
         //console.log(email, password, confirmed);
 
+        if(password.length < 6){
+            setError('Password must be at least 6 character long.');
+            return setError;
+        }
+
+        if(password !== confirmed){
+            setError('Your password did not match.')
+            return setError;
+        }
+
         createUser(email, password)
         .then(result => {
             const user = result.user;
@@ -29,6 +42,7 @@ const Signup = () => {
 
         })
         .catch(error => {
+            const setError = error.message;
             console.error(error);
         })
 
@@ -36,7 +50,7 @@ const Signup = () => {
 
     
     const handleGglLogin = () => {
-        loginWithGoogle(googleProvider)
+        continueWithProvider(googleProvider)
         .then(result => {
             const user = result.user;
             console.log(user);
@@ -48,7 +62,7 @@ const Signup = () => {
     }
 
     const handleGitLogin = () => {
-        loginWithGoogle(githubProvider)
+        continueWithProvider(githubProvider)
         .then(result => {
             const user = result.user;
             console.log(user);
@@ -108,6 +122,8 @@ const Signup = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-active">Signup</button>
                         </div>
+
+                        <p className="text-danger">{error}</p>
 
                         <div className='flex justify-center items-center my-4'>
                             <hr style={{width: "50%"}}></hr><br/>

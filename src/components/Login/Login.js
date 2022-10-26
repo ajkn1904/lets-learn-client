@@ -3,14 +3,17 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/UserContext';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { useState} from 'react';
 
 const Login = () => {
 
-    const {login, loginWithGoogle} = useContext(AuthContext);
+    const {login, continueWithProvider} = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
 
     const githubProvider = new GithubAuthProvider();
+
+    const [error, setError] = useState(null);
 
     const handleSubmit = (event) => {
         
@@ -34,7 +37,7 @@ const Login = () => {
     }
 
     const handleGglLogin = () => {
-        loginWithGoogle(googleProvider)
+        continueWithProvider(googleProvider)
         .then(result => {
             const user = result.user;
             console.log(user);
@@ -46,12 +49,13 @@ const Login = () => {
     }
 
     const handleGitLogin = () => {
-        loginWithGoogle(githubProvider)
+        continueWithProvider(githubProvider)
         .then(result => {
             const user = result.user;
             console.log(user);
         })
         .catch(error => {
+            const setError = error.message;
             console.error(error);
         });
 
@@ -86,6 +90,8 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-active">Login</button>
                         </div>
+
+                        <p className="text-danger">{error}</p>
 
                         <div className='flex justify-center items-center my-4'>
                             <hr style={{width: "50%"}}></hr><br/>
