@@ -1,6 +1,6 @@
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/UserContext';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useState} from 'react';
@@ -15,6 +15,14 @@ const Login = () => {
 
     const [error, setError] = useState(null);
 
+    const location = useLocation();
+
+    const navigate = useNavigate()
+
+    const from = location.state?.from?.pathname || '/';
+
+
+
     const handleSubmit = (event) => {
         
         event.preventDefault();
@@ -28,6 +36,8 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             form.reset();
+            setError('');
+            navigate(from, {replace: true});
         })
         .catch(error => {
             console.error(error);
