@@ -1,6 +1,6 @@
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/UserContext';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
@@ -8,11 +8,32 @@ import { useState } from 'react';
 
 const Signup = () => {
 
-    const {createUser, continueWithProvider} = useContext(AuthContext);
+    const {createUser, continueWithProvider, updatePro} = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
     const [error, setError] = useState(null);
+
+    const location = useLocation();
+
+    const navigate = useNavigate()
+
+    const from = location.state?.from?.pathname || '/';
+
+
+
+    const handlePro = (name, photoURL) => {
+
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updatePro(profile)
+        .then(() => {})
+        .catch(error => {
+            console.error(error);
+        })
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,7 +43,11 @@ const Signup = () => {
         const password = form.password.value;
         const confirmed = form.confirmPass.value;
 
-        //console.log(email, password, confirmed);
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+
+
+        console.log(email, password, confirmed, photoURL, name);
 
         if(password.length < 6){
             setError('Password must be at least 6 character long.');
@@ -38,7 +63,10 @@ const Signup = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            setError('');
             form.reset();
+            navigate(from, {replace: true});
+            handlePro(name, photoURL);
 
         })
         .catch(error => {
@@ -89,12 +117,14 @@ const Signup = () => {
                             </label>
                             <input type="text" name="name" placeholder="Name" className="input input-bordered" />
                         </div>
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Image Url</span>
                             </label>
-                            <input type="text" name="imgUrl" placeholder="Image Url" className="input input-bordered" />
+                            <input type="text" name="photoURL" placeholder="Image Url" className="input input-bordered" />
                         </div>
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -117,13 +147,13 @@ const Signup = () => {
                         </div>
                         
                         
-                        <small className='text-center'>Have an account? <Link to="/login" className='text-primary'>Login Now</Link></small>
+                        <small className='text-center'>Have an account? <Link to="/login" className='text-blue-500'>Login Now</Link></small>
                         
                         <div className="form-control mt-6">
-                            <button className="btn btn-active">Signup</button>
+                            <button className="btn btn-active">Sign up</button>
                         </div>
 
-                        <p className="text-danger">{error}</p>
+                        <small className="text-red-500">{error}</small>
 
                         <div className='flex justify-center items-center my-4'>
                             <hr style={{width: "50%"}}></hr><br/>
@@ -133,13 +163,13 @@ const Signup = () => {
                             <hr style={{width: "50%"}}></hr>
                         </div>
 
-                        <div className='flex gap-2'>
+                        <div className='sm:flex-col md:flex-row lg:flex-row gap-2'>
                             <button onClick={handleGglLogin} className="btn btn-ghost border-success">
-                                <FaGoogle className='mr-1'></FaGoogle>Continue with Google
+                                <FaGoogle className='mr-1'></FaGoogle> Signup with Google
                             </button>
 
                             <button onClick={handleGitLogin} className="btn btn-ghost border-primary">
-                                <FaGithub className='mr-1'></FaGithub>Continue with GitHub
+                                <FaGithub className='mr-1'></FaGithub>Signup with GitHub
                             </button>
 
                         </div>

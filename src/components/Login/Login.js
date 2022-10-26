@@ -101,7 +101,7 @@ const Login = () => {
                             <button className="btn btn-active">Login</button>
                         </div>
 
-                        <p className="text-danger">{error}</p>
+                        <small className="text-red-400">{error}</small>
 
                         <div className='flex justify-center items-center my-4'>
                             <hr style={{width: "50%"}}></hr><br/>

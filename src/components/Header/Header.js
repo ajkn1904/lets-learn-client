@@ -47,12 +47,13 @@ console.log(user)
             <div className="w-10 rounded-full">
                 <img title={user?.displayName} src={user?.photoURL} alt=""/>
             </div>
-            <span>{user?.email}</span>
         </label>
         :
-        <div className="w-10 rounded-full">
-            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-        </div>
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div className="w-10 rounded-full">
+                <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+            </div>
+        </label>
          }   
  
         </div>
