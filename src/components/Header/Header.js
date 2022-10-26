@@ -1,9 +1,10 @@
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faMoon, faSun, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from "../../logo.svg"
 import { AuthContext } from '../contexts/UserContext';
+
 
 const Header = () => {
 
@@ -23,22 +24,36 @@ console.log(user)
         <Link to="/courses" className="btn btn-ghost normal-case">Courses</Link>
         <Link to="/faq" className="btn btn-ghost normal-case">FAQ</Link>
         <Link to="/blog" className="btn btn-ghost normal-case">Blog</Link>
-        <button className="btn btn-ghost normal-case"><Link to="/login">Login</Link></button>
-        <button className="btn btn-ghost normal-case"><Link to="/signup">Signup</Link></button>
-        <button className="btn btn-ghost normal-case" onClick={logout}>Logout</button>
+
+        {  user?.uid ?
+            <button className="btn btn-ghost normal-case" onClick={logout}>Logout</button>
+            :
+            <>
+                <button className="btn btn-ghost normal-case"><Link to="/login">Login</Link></button>
+                <button className="btn btn-ghost normal-case"><Link to="/signup">Signup</Link></button>
+            </>  
+        }
 
         <button className='btn btn-outline'>
             <FontAwesomeIcon icon={faMoon}></FontAwesomeIcon>
 
             <FontAwesomeIcon icon={faSun}></FontAwesomeIcon>
         </button>
-            
+         
+         
+         { user?.uid ? 
+
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/80/80/people" alt=""/>
+            <div onFocus={user?.name} className="w-10 rounded-full">
+                <img title={user?.name} src={user?.photoURL} alt=""/>
             </div>
             <span>{user?.email}</span>
         </label>
+        :
+        <div onFocus={user?.name} className="w-10 rounded-full">
+            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+        </div>
+         }   
  
         </div>
         </div>
