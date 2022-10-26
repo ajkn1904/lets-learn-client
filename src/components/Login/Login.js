@@ -2,10 +2,15 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/UserContext';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
-    const {login} = useContext(AuthContext)
+    const {login, loginWithGoogle} = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider();
+
+    const githubProvider = new GithubAuthProvider();
 
     const handleSubmit = (event) => {
         
@@ -22,9 +27,33 @@ const Login = () => {
             form.reset();
         })
         .catch(error => {
-            console.error('error');
+            console.error(error);
         });
 
+
+    }
+
+    const handleGglLogin = () => {
+        loginWithGoogle(googleProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+    }
+
+    const handleGitLogin = () => {
+        loginWithGoogle(githubProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
     }
 
@@ -67,11 +96,11 @@ const Login = () => {
                         </div>
 
                         <div className='flex gap-2'>
-                            <button className="btn btn-ghost border-success">
+                            <button onClick={handleGglLogin} className="btn btn-ghost border-success">
                                 <FaGoogle className='mr-1'></FaGoogle>Login with Google
                             </button>
 
-                            <button className="btn btn-ghost border-primary">
+                            <button onClick={handleGitLogin} className="btn btn-ghost border-primary">
                                 <FaGithub className='mr-1'></FaGithub>Login with GitHub
                             </button>
 
