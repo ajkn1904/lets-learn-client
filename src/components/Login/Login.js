@@ -95,13 +95,13 @@ const Login = () => {
                         </div>
                         
                         
-                        <small className='text-center'>Haven't any account? <Link to="/signup" className='text-primary'>Create here</Link></small>
+                        <small className='text-center'>Haven't any account? <Link to="/signup" className='text-blue-600'>Create here</Link></small>
                         
                         <div className="form-control mt-6">
                             <button className="btn btn-active">Login</button>
                         </div>
 
-                        <small className="text-red-400">{error}</small>
+                        <small className="text-red-600">{error}</small>
 
                         <div className='flex justify-center items-center my-4'>
                             <hr style={{width: "50%"}}></hr><br/>
@@ -111,7 +111,7 @@ const Login = () => {
                             <hr style={{width: "50%"}}></hr>
                         </div>
 
-                        <div className='flex gap-2'>
+                        <div className='flex flex-col sm:flex-col md:flex-row lg:flex-row gap-2'>
                             <button onClick={handleGglLogin} className="btn btn-ghost border-success">
                                 <FaGoogle className='mr-1'></FaGoogle>Login with Google
                             </button>

@@ -21,6 +21,7 @@ function App() {
         },
         {
           path: "/courses",
+          loader: () => fetch('https://lets-learn-server.vercel.app/category/04'),
           element: <Courses></Courses>
         },
         {

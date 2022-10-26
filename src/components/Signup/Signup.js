@@ -106,7 +106,7 @@ const Signup = () => {
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
-                <h1 className="text-3xl font-bold">Signup now!</h1>
+                <h1 className="text-3xl font-bold">Sign Up now!</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit} className="card-body">
@@ -147,13 +147,13 @@ const Signup = () => {
                         </div>
                         
                         
-                        <small className='text-center'>Have an account? <Link to="/login" className='text-blue-500'>Login Now</Link></small>
+                        <small className='text-center'>Have an account? <Link to="/login" className='text-blue-600'>Login Now</Link></small>
                         
                         <div className="form-control mt-6">
                             <button className="btn btn-active">Sign up</button>
                         </div>
 
-                        <small className="text-red-500">{error}</small>
+                        <small className="text-red-600">{error}</small>
 
                         <div className='flex justify-center items-center my-4'>
                             <hr style={{width: "50%"}}></hr><br/>
@@ -163,7 +163,7 @@ const Signup = () => {
                             <hr style={{width: "50%"}}></hr>
                         </div>
 
-                        <div className='sm:flex-col md:flex-row lg:flex-row gap-2'>
+                        <div className='flex flex-col sm:flex-col md:flex-row lg:flex-row gap-2'>
                             <button onClick={handleGglLogin} className="btn btn-ghost border-success">
                                 <FaGoogle className='mr-1'></FaGoogle> Signup with Google
                             </button>
