@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Pdf from 'react-to-pdf';
+
+
+const ref = React.createRef()
 
 const CourseDetail = () => {
     /* Loading data from API with react hook */
     const courseDetail = useLoaderData();
     const {name, img, outcome, price, ratings, outline, id} = courseDetail;
+
+
     return (
         <>
             <header>
@@ -14,7 +20,10 @@ const CourseDetail = () => {
             
             <div className='text-center font-bold p-6 text-white text-4xl bg-black flex justify-between'>
                 <h1>{name}</h1>
-                <button className="btn glass">Download</button>
+
+                <Pdf targetRef={ref} filename="tutorial.pdf">
+                {({ toPdf }) => <button className='btn glass' onClick={toPdf}>Download PDF</button>}
+                </Pdf>
             </div>
             </header>
 
@@ -22,7 +31,7 @@ const CourseDetail = () => {
             <h2 className='my-14 text-center text-primary font-bold text-3xl'>Course Details</h2>
 
 
-            <div className='my-8 w-10/12 mx-auto border-2 p-12 border-dark rounded-2xl'>
+            <div className='my-8 w-10/12 mx-auto border-2 p-12 border-dark rounded-2xl' ref={ref}>
                 
                 <h3 className='text-2xl font-bold text-slate-800'>What You will Learn?</h3>
 
