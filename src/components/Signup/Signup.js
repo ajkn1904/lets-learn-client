@@ -72,7 +72,7 @@ const Signup = () => {
 
         })
         .catch(error => {
-            const setError = error.message;
+            setError(error.message);
             console.error(error);
         })
 
@@ -86,6 +86,7 @@ const Signup = () => {
             console.log(user);
         })
         .catch(error => {
+            setError(error.message);
             console.error(error);
         });
 
@@ -99,6 +100,7 @@ const Signup = () => {
             console.log(user);
         })
         .catch(error => {
+            setError(error.message);
             console.error(error);
         });
 
@@ -150,13 +152,14 @@ const Signup = () => {
                         </div>
                         
                         
-                        <small className='text-center'>Have an account? <Link to="/login" className='text-blue-600'>Login Now</Link></small>
+                        
+                        <small className="text-red-600">{error}</small>
                         
                         <div className="form-control mt-6">
                             <button className="btn btn-active">Sign up</button>
                         </div>
 
-                        <small className="text-red-600">{error}</small>
+                        <small className='text-center'>Have an account? <Link to="/login" className='text-blue-600'>Login Now</Link></small>
 
                         <div className='flex justify-center items-center my-4'>
                             <hr style={{width: "50%"}}></hr><br/>
