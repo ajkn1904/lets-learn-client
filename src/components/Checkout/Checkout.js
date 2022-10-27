@@ -3,9 +3,11 @@ import { useLoaderData } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
 const Checkout = () => {
+    /* Loading data from API using react hook */
     const courseDetail = useLoaderData();
     const {name, img, description, price} = courseDetail;
 
+    /* using react hot toast */
     const handleCheckOut = () => {
         toast.success("Congratulations!!!")
     }

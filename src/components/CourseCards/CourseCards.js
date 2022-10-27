@@ -10,7 +10,7 @@ const CourseCards = ({course}) => {
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <div className="card-actions justify-end">
-                <button className="btn btn-primary"><Link to={`/courseDetail/${id}`}>Details</Link></button>
+                <button className="btn btn-primary"><Link to={`/courseDetail/${id}`}>Details</Link></button>        {/* links to dynamic route */}
                 </div>
                 <p>{description}</p>
 

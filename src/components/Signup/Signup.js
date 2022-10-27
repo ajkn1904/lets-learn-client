@@ -12,16 +12,16 @@ const Signup = () => {
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(null);        /* to handle input error  */
 
-    const location = useLocation();
+    const location = useLocation();             /* for getting browsers' location history */
 
     const navigate = useNavigate()
 
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/';         /* to navigate users location*/
 
 
-
+/* for profile update */
     const handlePro = (name, photoURL) => {
 
         const profile = {
@@ -49,6 +49,7 @@ const Signup = () => {
 
         console.log(email, password, confirmed, photoURL, name);
 
+        /* Password validation */
         if(password.length < 6){
             setError('Password must be at least 6 character long.');
             return setError;
@@ -59,6 +60,7 @@ const Signup = () => {
             return setError;
         }
 
+        /* creating user with email & password */
         createUser(email, password)
         .then(result => {
             const user = result.user;
@@ -76,7 +78,7 @@ const Signup = () => {
 
     }
 
-    
+    /* Log in wih google provider */
     const handleGglLogin = () => {
         continueWithProvider(googleProvider)
         .then(result => {
@@ -89,6 +91,7 @@ const Signup = () => {
 
     }
 
+    /* Log in wih github provider */
     const handleGitLogin = () => {
         continueWithProvider(githubProvider)
         .then(result => {

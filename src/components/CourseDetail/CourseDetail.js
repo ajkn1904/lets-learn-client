@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetail = () => {
+    /* Loading data from API with react hook */
     const courseDetail = useLoaderData();
     const {name, img, outcome, price, ratings, outline, id} = courseDetail;
     return (

@@ -29,16 +29,19 @@ function App() {
         },
         {
           path: '/courseDetail/:id',
+          /* Loading dynamic data */
           loader: async ({params}) =>{
-            return fetch(`https://lets-learn-server.vercel.app/course/${params.id}`)
+            return fetch(`https://lets-learn-server.vercel.app/course/${params.id}`)      
         },
           element: <CourseDetail></CourseDetail>
       },
         {
           path: "/checkout/:id",
+          /* Loading dynamic data */
           loader: async ({params}) =>{
             return fetch(`https://lets-learn-server.vercel.app/course/${params.id}`)
         },
+        /* Private route */
           element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
         },
         {
@@ -56,6 +59,10 @@ function App() {
         {
           path: "/signup",
           element: <Signup></Signup>
+        },
+        {
+          path: '*',
+          element: <h1 className='text-6xl font-extrabold text-center mt-18'>404 Oops page not found! Try Again</h1>
         }
       ]
     }

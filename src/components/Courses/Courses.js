@@ -8,13 +8,15 @@ const Courses = () => {
     console.log(courses)
     return (
         <div className="flex">
+            {/* course content */}
             <div className='grow'  style={{marginLeft: "15px", marginBottom: "50px"}}>
-                    <p className='text-primary text-center text-4xl font-bold h-5 my-10'>COURSES</p>
+                    <p className='text-primary text-center text-4xl font-bold h-5 my-10'>ALL COURSES</p>
                 <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16 sm:mx-10 md:ml-14 lg:ml-20'>
                     {courses.map(course => <CourseCards course={course} key={course.id}></CourseCards>)
                     }
                 </div>
             </div>
+            {/* side nav of courses page */}
             <div classNam="grow-0" style={{backgroundColor: "lightgrey", marginLeft: "15px"}}>
                 <p className='text-primary text-center text-2xl font-semibold h-5 my-10'>FIND COURSES</p>
             {

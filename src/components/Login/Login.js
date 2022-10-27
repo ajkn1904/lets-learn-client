@@ -13,19 +13,19 @@ const Login = () => {
 
     const githubProvider = new GithubAuthProvider();
 
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(null);           /* to handle input error  */
 
-    const location = useLocation();
+    const location = useLocation();         /* for getting browsers' location history */
 
     const navigate = useNavigate()
 
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/';         /* to navigate users location*/
 
 
 
     const handleSubmit = (event) => {
         
-        event.preventDefault();
+        event.preventDefault();         /* preventing website from reloading */
 
         const form = event.target;
         const email = form.email.value;
@@ -46,6 +46,7 @@ const Login = () => {
 
     }
 
+    /* Log in wih google provider */
     const handleGglLogin = () => {
         continueWithProvider(googleProvider)
         .then(result => {
@@ -57,7 +58,8 @@ const Login = () => {
         });
 
     }
-
+    
+    /* Log in wih github provider */
     const handleGitLogin = () => {
         continueWithProvider(githubProvider)
         .then(result => {

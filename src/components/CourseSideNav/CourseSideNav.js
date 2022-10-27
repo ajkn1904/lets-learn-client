@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+/*  side nav */
 const CourseSideNav = ({course}) => {
     const {name, id} = course
     return (
