@@ -34,25 +34,30 @@ console.log(user)
             </>  
         }
 
-        <button className='btn btn-outline'>
-            <FontAwesomeIcon icon={faMoon}></FontAwesomeIcon>
+        <button className='btn btn-ghost btn-circle'>
+            <label className="swap swap-rotate">
+            <input type="checkbox" />
+            <span className='swap-on fill-current'>
+                <FontAwesomeIcon icon={faMoon} className="w-6 h-6 bg-black p-2 rounded-full text-slate-100"></FontAwesomeIcon>
+            </span>
 
-            <FontAwesomeIcon icon={faSun}></FontAwesomeIcon>
+            <span className='swap-off fill-current'>
+                <FontAwesomeIcon icon={faSun} className="w-6 h-6 bg-white p-2 rounded-full text-black"></FontAwesomeIcon>
+            </span>    
+            </label>
         </button>
          
          
          { user?.uid ? 
 
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
+            <div className="w-10 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
                 <img title={user?.displayName} src={user?.photoURL} alt=""/>
             </div>
         </label>
         :
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-                <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-            </div>
+        <label className="btn btn-ghost btn-circle">
+                <FontAwesomeIcon icon={faUser} className="w-6 h-6"></FontAwesomeIcon>
         </label>
          }   
  
