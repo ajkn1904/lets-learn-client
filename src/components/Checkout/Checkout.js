@@ -12,18 +12,23 @@ const Checkout = () => {
         toast.success("Congratulations!!!")
     }
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl w-9/12 mx-auto my-14">
-        <figure><img src={img} alt=""/></figure>
-        <div className="card-body">
-            <h2 className="card-title">{name}</h2>
-            <p>{description}</p>
-            <small>Price: ${price}</small>
-            <div className="card-actions justify-end">
-                <button onClick={handleCheckOut} className="btn btn-outline btn-primary font-bold">Checkout Now</button>
-                <Toaster/>
+        <>
+        <p className='text-center font-semibold py-6 text-white text-3xl bg-black mb-16'>CHECKOUT</p>
+        <div className="card lg:card-side bg-base-100 shadow-xl w-9/12 mx-auto mt-20 mb-24">
+        
+            <figure><img src={img} alt=""/></figure>
+
+            <div className="card-body">
+                <h2 className="card-title">{name}</h2>
+                <p>{description}</p>
+                <small>Price: ${price}</small>
+                <div className="card-actions justify-end">
+                    <button onClick={handleCheckOut} className="btn btn-outline btn-primary font-bold">Checkout Now</button>
+                    <Toaster/>
+                </div>
             </div>
         </div>
-        </div>
+        </>
     );
 };
 

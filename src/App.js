@@ -5,7 +5,6 @@ import Checkout from './components/Checkout/Checkout';
 import CourseDetail from './components/CourseDetail/CourseDetail';
 import Courses from './components/Courses/Courses';
 import FAQ from './components/FAQ/FAQ';
-import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Main from './components/Layout/Main';
 import Login from './components/Login/Login';
@@ -34,15 +33,15 @@ function App() {
             return fetch(`https://lets-learn-server.vercel.app/course/${params.id}`)      
         },
           element: <CourseDetail></CourseDetail>
-      },
+        },
         {
           path: "/checkout/:id",
           /* Loading dynamic data */
           loader: async ({params}) =>{
             return fetch(`https://lets-learn-server.vercel.app/course/${params.id}`)
-        },
-        /* Private route */
-          element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
+          },
+          /* Private route */
+            element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
         },
         {
           path: "/faq",

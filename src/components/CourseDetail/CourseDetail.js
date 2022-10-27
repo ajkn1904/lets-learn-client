@@ -33,6 +33,10 @@ const CourseDetail = () => {
 
             <div className='my-8 w-10/12 mx-auto border-2 p-12 border-dark rounded-2xl' ref={ref}>
                 
+                <h3 className='text-2xl font-bold text-slate-800'>Course Name</h3>
+
+                <p className='mt-3 mb-7'>{name}</p>
+
                 <h3 className='text-2xl font-bold text-slate-800'>What You will Learn?</h3>
 
                 <p className='mt-3 mb-7'>{outcome}</p>
