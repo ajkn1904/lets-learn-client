@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Blog from './components/Blog/Blog';
+import CourseDetail from './components/CourseDetail/CourseDetail';
 import Courses from './components/Courses/Courses';
 import FAQ from './components/FAQ/FAQ';
 import Header from './components/Header/Header';
@@ -23,6 +24,17 @@ function App() {
           path: "/courses",
           loader: () => fetch('https://lets-learn-server.vercel.app/category/04'),
           element: <Courses></Courses>
+        },
+        {
+          path: '/courseDetail/:id',
+          loader: async ({params}) =>{
+            return fetch(`https://lets-learn-server.vercel.app/course/${params.id}`)
+        },
+          element: <CourseDetail></CourseDetail>
+      },
+        {
+          path: "/faq",
+          element: <FAQ></FAQ>
         },
         {
           path: "/faq",
