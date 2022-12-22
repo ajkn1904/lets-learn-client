@@ -18,7 +18,7 @@ const CourseDetail = () => {
                     <h1>{name}</h1>
 
                     <Pdf targetRef={ref} filename="tutorial.pdf">
-                        {({ toPdf }) => <button className='btn glass' onClick={toPdf}>Download PDF</button>}
+                        {({ toPdf }) => <button className='btn btn-primary' onClick={toPdf}>Download PDF</button>}
                     </Pdf>
                 </div>
             </header>
