@@ -84,6 +84,7 @@ const Signup = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            navigate(from, {replace: true});
         })
         .catch(error => {
             setError(error.message);
@@ -98,6 +99,7 @@ const Signup = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            navigate(from, {replace: true});
         })
         .catch(error => {
             setError(error.message);
@@ -113,7 +115,7 @@ const Signup = () => {
                 <div className="text-center lg:text-left">
                 <h1 className="text-3xl font-bold">Sign Up now!</h1>
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-md shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit} className="card-body">
                         
                         <div className="form-control">

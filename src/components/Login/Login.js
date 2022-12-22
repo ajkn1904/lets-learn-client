@@ -52,6 +52,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            navigate(from, {replace: true});
         })
         .catch(error => {
             setError(error.message);
@@ -66,6 +67,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            navigate(from, {replace: true});
         })
         .catch(error => {
             setError(error.message);
@@ -78,9 +80,9 @@ const Login = () => {
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
-                <h1 className="text-3xl font-bold">Login now!</h1>
+                <h1 className="text-4xl font-bold">Login now!</h1>
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-md shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit} className="card-body">
                         
                         <div className="form-control">

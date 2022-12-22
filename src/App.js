@@ -43,10 +43,10 @@ function App() {
           /* Private route */
             element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
         },
-        {
+        /* {
           path: "/faq",
           element: <FAQ></FAQ>
-        },
+        }, */
         {
           path: "/blog",
           element: <Blog></Blog>

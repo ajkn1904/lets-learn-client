@@ -12,7 +12,7 @@ const {user, logout} = useContext(AuthContext);
 
 
     return (
-        <div className="navbar bg-base-300">
+        <div className="navbar">
             <div className="flex-1">
                 <img src={Logo} alt="logo" style={{hight: "40px", width: "40px", borderRadius:"5px"}} />
                 <h1 className="normal-case italic font-bold text-xl">Let'sLEARN</h1>
@@ -26,7 +26,7 @@ const {user, logout} = useContext(AuthContext);
                    
                     <Link to="/" className="btn btn-ghost normal-case">HOME</Link>
                     <Link to="/courses" className="btn btn-ghost normal-case">COURSES</Link>
-                    <Link to="/faq" className="btn btn-ghost normal-case">FAQ</Link>
+                   {/*  <Link to="/faq" className="btn btn-ghost normal-case">FAQ</Link> */}
                     <Link to="/blog" className="btn btn-ghost normal-case">BLOG</Link>
 
                     {  user?.uid ?
@@ -50,11 +50,11 @@ const {user, logout} = useContext(AuthContext);
                     </label>
                     
 
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-300 rounded-box w-40">
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-40">
 
                         <Link to="/" className="btn btn-ghost normal-case">HOME</Link>
                         <Link to="/courses" className="btn btn-ghost normal-case">COURSES</Link>
-                        <Link to="/faq" className="btn btn-ghost normal-case">FAQ</Link>
+                       {/*  <Link to="/faq" className="btn btn-ghost normal-case">FAQ</Link> */}
                         <Link to="/blog" className="btn btn-ghost normal-case">BLOG</Link>
 
                         {  user?.uid ?
@@ -75,11 +75,11 @@ const {user, logout} = useContext(AuthContext);
                     <label className="swap swap-rotate">
                     <input type="checkbox" />
                     <span className='swap-on fill-current'>
-                        <FontAwesomeIcon icon={faMoon} className="w-6 h-6 bg-black p-2 rounded-full text-slate-100" title='Light'></FontAwesomeIcon>
+                        <FontAwesomeIcon icon={faMoon} className="w-5 h-5 bg-black p-1 rounded-full text-white" title='Light'></FontAwesomeIcon>
                     </span>
 
                     <span className='swap-off fill-current'>
-                        <FontAwesomeIcon icon={faSun} className="w-6 h-6 bg-white p-2 rounded-full text-black" title='Dark'></FontAwesomeIcon>
+                        <FontAwesomeIcon icon={faSun} className="w-5 h-5 bg-white p-1 rounded-full text-black" title='Dark'></FontAwesomeIcon>
                     </span>    
                     </label>
                 </button>
@@ -93,9 +93,9 @@ const {user, logout} = useContext(AuthContext);
                     </div>
                 </label>
                 :
-                <label className="btn btn-ghost btn-circle">
-                        <FontAwesomeIcon icon={faUser} className="w-6 h-6"></FontAwesomeIcon>
-                </label>
+                <Link to='/login' className="btn btn-ghost btn-circle">
+                        <FontAwesomeIcon icon={faUser} className="w-5 h-5"></FontAwesomeIcon>
+                </Link>
                 }   
  
             </div>

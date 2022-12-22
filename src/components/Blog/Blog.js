@@ -3,9 +3,9 @@ import React from 'react';
 const Blog = () => {
     return (
         <div>
-            <h1 className='text-center font-semibold py-6 text-white text-3xl bg-black mb-16'>Welcome to BLOG!</h1>
+            <h1 className='text-center font-bold text-4xl my-10'>Welcome to BLOG!</h1>
 
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h[90vh] pt-16 pb-10 bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
                 <img src="https://images.unsplash.com/photo-1596461009523-7d647a4e2399?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" className="max-w-sm rounded-lg shadow-2xl" alt="" />
                 <div className="flex flex-col gap-5">
