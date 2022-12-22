@@ -22,7 +22,7 @@ const CourseCards = ({course}) => {
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400 w-3 h-3" checked />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400 w-3 h-3" checked />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-300 w-3 h-3" checked />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-100 w-3 h-3" />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-100 w-3 h-3" />
                         </small>
                     </span>
                 </div>
