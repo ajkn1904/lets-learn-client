@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Feedback from './Feedback';
+import img1 from '../../images/company-1.png'
+import img2 from '../../images/company-2.png'
+import img3 from '../../images/company-3.png'
+import img4 from '../../images/company-4.png'
+import img5 from '../../images/company-5.png'
+import img6 from '../../images/company-6.png'
 
 const Home = () => {
     return (
@@ -21,6 +27,53 @@ const Home = () => {
                 <h1 className="my-10 text-4xl font-bold text-center">What People Says</h1>
                 <Feedback />
             </div>
+
+            <section id="get-my-update">
+                <h1 className="my-10 text-4xl font-bold text-center">Get Connected</h1>
+                <div className='bg-gradient-to-r from-cyan-200 to-blue-200 px-5 py-20 w-10/12 sm:w-10/12 md:w-8/12 lg:w-9/12 mx-auto mb-32 rounded'>
+                    <form className='flex flex-col justify-center'>
+                        <input className='input my-3 w-[90%] mx-auto' type="text" placeholder="Name" />                  
+                        <input className='input my-3 w-[90%] mx-auto' type="email" placeholder="Email" />
+                        <textarea className='input my-3 w-[90%] mx-auto min-h-[80px]' type="textarea" placeholder="Your Message" />
+                        <button className='btn w-[50%] mx-auto mt-6'><a href="/" >Submit</a></button>
+                    </form>
+                </div>
+            </section>
+
+
+            <section>
+            <h1 className="my-10 text-4xl font-bold text-center">Our Sponsors</h1>
+
+            <div className='w-full p-5 mb-20'>
+                <div className="flex justify-evenly items-center gap-4 m-3">
+
+                    <div className="col">
+                        <img className="w-75 m-2" src={img1} alt=" " />
+                    </div>
+
+                    <div className="col">
+                        <img className="w-75 m-2" src={img2} alt=" " />
+                    </div>
+
+                    <div className="col">
+                        <img className="w-75 m-2" src={img3} alt=" " />
+                    </div>
+
+                    <div className="col">
+                        <img className="w-75 m-2" src={img4} alt=" " />
+                    </div>
+
+                    <div className="col">
+                        <img className="w-75 m-2" src={img5} alt=" " />
+                    </div>
+
+                    <div className="col">
+                        <img className="w-75 m-2" src={img6} alt=" " />
+                    </div>
+
+                </div>
+            </div>
+        </section>
 
 
         </>

@@ -15,7 +15,7 @@ const {user, logout} = useContext(AuthContext);
         <div className="navbar">
             <div className="flex-1">
                 <img src={Logo} alt="logo" style={{hight: "40px", width: "40px", borderRadius:"5px"}} />
-                <h1 className="normal-case italic font-bold text-xl">Let'sLEARN</h1>
+                <Link to='/' className="normal-case italic font-bold text-xl">Let'sLEARN</Link>
             </div>
             
             {/* to hide navbar options from small and medium devices */}

@@ -25,9 +25,7 @@ const Feedback = () => {
 
                                 </span>
                             </div>
-                            <p> In design it is important to show the effect of an action. During the final two weeks of training, our students work simulated game situations in which our staff members role-play as players, managers, and coaches. Teachers
-                                support evaluations based on multiple measures: student growth.
-                            </p>
+                            <p>“The opportunity for every child to learn and to make the most of their talents is at the heart of a fairer society. Yet in country after country it is wealth, not talent, that dictates a child’s educational destiny.… This reality is failing individual children, each of whom has a right to education. It is also failing society, as a generation of talented poor girls and boys cannot fulfil their promise and contribute fully to human progress. Brilliant doctors, teachers or entrepreneurs are instead herding goats or collecting water. Humanity faces unprecedented challenges. Yet instead of utilizing the talents of all of people, inequality means we are squandering this potential.”</p>
 
 
 
@@ -55,9 +53,7 @@ const Feedback = () => {
 
                                 </span>
                             </div>
-                            <p> In design it is important to show the effect of an action. During the final two weeks of training, our students work simulated game situations in which our staff members role-play as players, managers, and coaches. Teachers
-                                support evaluations based on multiple measures: student growth.
-                            </p>
+                            <p>“The opportunity for every child to learn and to make the most of their talents is at the heart of a fairer society. Yet in country after country it is wealth, not talent, that dictates a child’s educational destiny.… This reality is failing individual children, each of whom has a right to education. It is also failing society, as a generation of talented poor girls and boys cannot fulfil their promise and contribute fully to human progress. Brilliant doctors, teachers or entrepreneurs are instead herding goats or collecting water. Humanity faces unprecedented challenges. Yet instead of utilizing the talents of all of people, inequality means we are squandering this potential.”</p>
 
 
 
@@ -85,9 +81,7 @@ const Feedback = () => {
 
                                 </span>
                             </div>
-                            <p> In design it is important to show the effect of an action. During the final two weeks of training, our students work simulated game situations in which our staff members role-play as players, managers, and coaches. Teachers
-                                support evaluations based on multiple measures: student growth.
-                            </p>
+                            <p>“The opportunity for every child to learn and to make the most of their talents is at the heart of a fairer society. Yet in country after country it is wealth, not talent, that dictates a child’s educational destiny.… This reality is failing individual children, each of whom has a right to education. It is also failing society, as a generation of talented poor girls and boys cannot fulfil their promise and contribute fully to human progress. Brilliant doctors, teachers or entrepreneurs are instead herding goats or collecting water. Humanity faces unprecedented challenges. Yet instead of utilizing the talents of all of people, inequality means we are squandering this potential.”</p>
 
 
 
