@@ -4,7 +4,7 @@ import Blog from './components/Blog/Blog';
 import Checkout from './components/Checkout/Checkout';
 import CourseDetail from './components/CourseDetail/CourseDetail';
 import Courses from './components/Courses/Courses';
-import FAQ from './components/FAQ/FAQ';
+//import FAQ from './components/FAQ/FAQ';
 import Home from './components/Home/Home';
 import Main from './components/Layout/Main';
 import Login from './components/Login/Login';
